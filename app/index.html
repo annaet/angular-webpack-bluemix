@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularWebpack">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Webpack</title>
+</head>
+<body ng-controller="MainCtrl as app">
+    <h1>{{app.message}}</h1>
+    <button ng-click="app.clickIt()">Click</button>
+    
+    <script src="bundle.js"></script>
+</body>
+</html>
