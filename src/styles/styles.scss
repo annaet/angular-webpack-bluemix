@@ -1,9 +1,12 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
 body {
-    padding: 0;
-    margin: 0;
+  font:  $font-stack;
+  color: $primary-color;
 }
 
 h1 {
-    color: green;
-    text-transform: uppercase;
+  color: green;
+  text-transform: uppercase;
 }

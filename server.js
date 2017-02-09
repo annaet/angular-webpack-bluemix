@@ -15,14 +15,8 @@ if (isDeveloping) {
   const compiler = webpack(config)
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
-    contentBase: 'app',
     stats: {
-      colors: true,
-      hash: false,
-      timings: true,
-      chunks: false,
-      chunkModules: false,
-      modules: false
+      colors: true
     }
   })
 
@@ -30,19 +24,20 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler, {
     log: console.log
   }))
+  app.use(express.static(__dirname + '/src'))
   app.get('*', function response(req, res) {
-    res.sendFile(path.join(__dirname, 'src', 'app', 'index.html'))
+    res.sendFile(path.join(__dirname, 'src', 'index.html'))
   })
 } else {
-  app.use(path.join(__dirname, 'app'))
+  app.use(path.join(__dirname, 'src'))
   app.get('*', function response(req, res) {
-    res.sendFile(path.join(__dirname, 'src', 'app', 'index.html'))
+    res.sendFile(path.join(__dirname, 'src', 'index.html'))
   })
 }
 
 const appEnv = cfenv.getAppEnv()
 
-app.listen(appEnv.port, function onStart(err) {
+app.listen(appEnv.port, err => {
   if (err) {
     return console.log(err)
   }

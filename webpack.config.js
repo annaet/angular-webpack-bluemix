@@ -1,14 +1,14 @@
-const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
   entry: [
+    'webpack/hot/dev-server',
     'webpack-hot-middleware/client?reload=true',
     './src/app.js'
   ],
+  devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, 'src/app'),
-    publicPath: '/',
+    path: __dirname + '/src',
     filename: 'bundle.js'
   },
   module: {
@@ -22,10 +22,9 @@ module.exports = {
       loader: 'style-loader!css-loader!sass-loader'
     }]
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'src/app'),
-    compress: true,
-    watchContentBase: true
+  resolve: {
+    modules: ['bower_components', 'node_modules'],
+    descriptionFiles: ['package.json', 'bower.json']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
