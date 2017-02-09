@@ -1,6 +1,6 @@
-import angular from 'angular';
-import {MainCtrl} from './main/MainCtrl';
-import './styles/styles.scss';
+import angular from 'angular'
+import {MainCtrl} from './app/main/MainCtrl'
+import './app/styles/styles.scss'
 
 angular.module('angularWebpack', [])
-.controller('MainCtrl', MainCtrl);
+.controller('MainCtrl', MainCtrl)

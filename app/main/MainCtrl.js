@@ -1,11 +1,11 @@
 class MainCtrl {
-    constructor() {
-        this.message = 'Angular with Webpack and Babel!';
-    }
+  constructor() {
+    this.message = 'Hello world!'
+  }
 
-    clickIt() {
-        alert('ES2015!!!')
-    }
+  clickIt() {
+    alert('ES2015!!!')
+  }
 }
 
 export { MainCtrl }
