@@ -4,10 +4,10 @@ const webpack = require('webpack')
 module.exports = {
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    './app.js'
+    './src/app.js'
   ],
   output: {
-    path: path.resolve(__dirname, 'app'),
+    path: path.resolve(__dirname, 'src/app'),
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -23,9 +23,8 @@ module.exports = {
     }]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'app'),
+    contentBase: path.join(__dirname, 'src/app'),
     compress: true,
-    port: 9000,
     watchContentBase: true
   },
   plugins: [

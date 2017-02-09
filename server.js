@@ -31,12 +31,12 @@ if (isDeveloping) {
     log: console.log
   }))
   app.get('*', function response(req, res) {
-    res.sendFile(path.join(__dirname, 'app', 'index.html'))
+    res.sendFile(path.join(__dirname, 'src', 'app', 'index.html'))
   })
 } else {
-  app.use(express.static(__dirname + '/app'))
+  app.use(path.join(__dirname, 'app'))
   app.get('*', function response(req, res) {
-    res.sendFile(path.join(__dirname, 'app/index.html'))
+    res.sendFile(path.join(__dirname, 'src', 'app', 'index.html'))
   })
 }
 
