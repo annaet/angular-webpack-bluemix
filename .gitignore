@@ -36,3 +36,6 @@ bower_components
 # Webpack bundle
 bundle.js
 bundle.js.map
+
+# OSX files
+.DS_Store
