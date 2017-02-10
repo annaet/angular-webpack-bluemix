@@ -16,10 +16,16 @@ module.exports = {
       test: /\.js?$/,
       exclude: /(node_modules|bower_components)/,
       loader: 'babel-loader'
-    },
-    {
-      test: /\.scss$/,
+    }, {
+      test: /(\.scss|\.css)$/,
       loader: 'style-loader!css-loader!sass-loader'
+    }, {
+      test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+      loader: 'url-loader?limit=100000'
+    }, {
+      test: /\.html$/,
+      exclude: /node_modules/,
+      loader: 'raw-loader'
     }]
   },
   resolve: {
@@ -28,6 +34,10 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery'
+    })
   ]
 }

@@ -24,7 +24,6 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler, {
     log: console.log
   }))
-  app.use(express.static(__dirname + '/src'))
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'src', 'index.html'))
   })
