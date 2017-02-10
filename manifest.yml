@@ -1,0 +1,5 @@
+---
+applications:
+- name: angular-webpack-bluemix
+  memory: 256M
+  buildpack: sdk-for-nodejs_v2_8-20151209-1403
